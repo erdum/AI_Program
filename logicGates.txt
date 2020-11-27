@@ -1,0 +1,53 @@
+// !!! DONT FORGET TO PULL DOWN PIN 2 AND 3
+// pin number 2 and 3 are taken for two inputs
+int inputA = 2;
+int inputB = 3;
+// all logic gates output will be displayed by led's 
+int andLed = 4;
+int orLed = 5;
+int nandLed = 6;
+int norLed = 7;
+int xorLed = 8;
+int xnorLed = 9;
+// boolean variables are declared for saving the result of logic expresions
+bool andState;
+bool orState;
+bool nandState;
+bool norState;
+bool xorState;
+bool xnorState;
+void setup(){
+    // Setting all led's as outputs and two buttons as inputs
+    pinMode(andLed, OUTPUT);
+    pinMode(orLed, OUTPUT);
+    pinMode(nandLed, OUTPUT);
+    pinMode(norLed, OUTPUT);
+    pinMode(xorLed, OUTPUT);
+    pinMode(xnorLed, OUTPUT);
+    pinMode(inputA, INPUT);
+    pinMode(inputB, INPUT);
+}
+void loop(){
+    // Two more boolean variables for saving buttons state
+    bool stateA = digitalRead(inputA);
+    bool stateB = digitalRead(inputB);
+    // and gate expresion Y = A*B
+    andState = stateA * stateB;
+    // or gate expresion Y = A+B
+    orState = stateA + stateB;
+    // nand gate expresion Y = !(A*B) is same as (A*B) whole bar
+    nandState = !(stateA * stateB);
+    // nor gate expresion Y = !(A+B) is also same as (A+B) whole bar
+    norState = !(stateA + stateB);
+    // xor gate expresion Y = ((A*B') + (A*B'))
+    xorState = ((stateA * !stateB) + (stateA * !stateB));
+    // xnor gate expresion Y = !((A*B') + (A*B'))
+    xnorState = !((stateA * !stateB) + (stateA * !stateB));
+    // Now diriving all led's acceoding to thier gates output
+    digitalWrite(andLed, andState);
+    digitalWrite(orLed, orState);
+    digitalWrite(nandLed, nandState);
+    digitalWrite(norLed, norState);
+    digitalWrite(xorLed, xorState);
+    digitalWrite(xnorLed, xnorState);
+}
