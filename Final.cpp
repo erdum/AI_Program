@@ -25,6 +25,8 @@ void loop() {
         while(digitalRead(btn) == false){
             delay(100);
             pressLength_time = pressLength_time + 100;
+            Serial.print("ms = ");
+            Serial.println(pressLength_time);
         }
         if(pressLength_time >= option_time){
             if(option == 3){
