@@ -63,9 +63,6 @@ void loop() {
                     led3State = false;
                 }
             }
-            digitalWrite(indication, HIGH);
-            delay(200);
-            digitalWrite(indication, LOW);
             lastTime = millis();
         }
         pressLength_time = 0;
