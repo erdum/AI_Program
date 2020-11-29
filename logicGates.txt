@@ -43,7 +43,7 @@ void loop(){
     xorState = ((stateA * !stateB) + (!stateA * stateB));
     // xnor gate expresion Y = !((A*B') + (!'A*B))
     xnorState = !((stateA * !stateB) + (!stateA * stateB));
-    // Now diriving all led's acceoding to thier gates output
+    // Now diriving all led's according to thier gates output
     digitalWrite(andLed, andState);
     digitalWrite(orLed, orState);
     digitalWrite(nandLed, nandState);
