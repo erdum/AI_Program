@@ -18,15 +18,13 @@ void setup() {
     pinMode(led1, OUTPUT);
     pinMode(led2, OUTPUT);
     pinMode(led3, OUTPUT);
-    Serial.begin(9600);
+    pinMode(indication, OUTPUT);
 }
 void loop() {
     if((millis() - lastTime) > debounce){
         while(digitalRead(btn) == false){
             delay(100);
             pressLength_time = pressLength_time + 100;
-            Serial.print("ms = ");
-            Serial.println(pressLength_time);
         }
         if(pressLength_time >= option_time){
             if(option == 3){
