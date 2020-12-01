@@ -8,7 +8,6 @@ void setup() {
   pinMode(btn2, INPUT);
   pinMode(btn3, INPUT);
 }
-
 void loop() {
   // put your main code here, to run repeatedly:
   bool state1 = digitalRead(btn1);
@@ -38,5 +37,5 @@ void loop() {
   else{
     Serial.println("None of the buttons are pressed!");
   }
-  delay(100);
+  delay(500);
 }

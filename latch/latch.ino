@@ -1,21 +1,25 @@
 bool state = false;
-int btn1 = 2;
-int btn2 = 3;
+char data;
 int led = 12;
 void setup() {
   // put your setup code here, to run once:
   pinMode(led, OUTPUT);
-  pinMode(btn1, INPUT);
-  pinMode(btn2, INPUT);
+  Serial.begin(9600);
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-  if(digitalRead(btn1)){
-    state = true;
-  }
-  if(digitalRead(btn2)){
-    state = false;
+  if(Serial.available()){
+    data = Serial.read();
+    if(data == '1'){
+      state = true;
+    }
+    else if(data == '2'){
+      state = false;
+    }
+    else{
+      Serial.println("Invalid input");
+    }
   }
   digitalWrite(led, state);
 }
