@@ -5,7 +5,7 @@ const int pinD = 10;
 const int pinE = 9;
 const int pinF = 8;
 const int pinG = 7;
-const int btn = 6;
+const int btn = 2;
 int lastTime = 0;
 int duration = 0;
 void dts(int input){
