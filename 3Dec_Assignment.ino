@@ -120,29 +120,22 @@ void loop(){
             duration = duration + 100;
         }
         if(duration >= 100){
-            if(count == 9){
-                if(state){
-                    state = false;
-                }
-                else {
-                   state = true;
-                }
+            if(count == 9 and state == false){
+                state = true;
             }
-            else if(count == 0){
-                if(state){
-                    state = false;
-                }
-                else{
-                    state = true;
-                }
+            else if(count == 0 and state == true){
+                state = false;
             }
             if(state){
                 count = count - 1;
+                lastTime = millis();
             }
             else{
                 count = count + 1;
+                lastTime = millis();
             }
         }
+        duration = 0;
     }
     dts(count);
 }
