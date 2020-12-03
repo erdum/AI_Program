@@ -8,6 +8,8 @@ const int pinG = 7;
 const int btn = 2;
 int lastTime = 0;
 int duration = 0;
+int count = 0;
+bool state = false;
 void dts(int input){
     if(input == 0){
         digitalWrite(pinA, HIGH);
@@ -112,8 +114,6 @@ void setup(){
 }
 void loop(){
     bool btnState = digitalRead(btn);
-    bool state = false;
-    int count = 0;
     if((millis() - lastTime) > 50){
         while(btnState == false){
             delay(100);
