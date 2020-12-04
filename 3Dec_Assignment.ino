@@ -111,6 +111,7 @@ void setup(){
    pinMode(pinF, OUTPUT);
    pinMode(pinG, OUTPUT);
    pinMode(btn, INPUT_PULLUP);
+   Serial.begin(9600);
 }
 void loop(){
     bool btnState = digitalRead(btn);
@@ -118,12 +119,14 @@ void loop(){
         while(btnState == false){
             delay(100);
             duration = duration + 100;
+            Serial.println(duration);
         }
         if(duration >= 100){
-            if(count == 9 and state == false){
+            Serial.println("Clicked");
+            if(count == 9 && state == false){
                 state = true;
             }
-            else if(count == 0 and state == true){
+            else if(count == 0 && state == true){
                 state = false;
             }
             if(state){
@@ -138,4 +141,5 @@ void loop(){
         duration = 0;
     }
     dts(count);
+    Serial.println(count);
 }
