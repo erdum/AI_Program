@@ -8,7 +8,8 @@ void setup(){
 void loop(){
     duration = analogRead(potPin);
     // Here i am mapping 1024 analog value to 1000 milliseconds 
-    maped_value = (1000 / 1024) * duration;
+    mapped_value = (1000 / 1024) * duration;
+    // we can also use map function here mapped_value = map(duration, 0, 1024, 0, 1000);
     digitalWrite(ledPin, HIGH);
     delay(duration);
     digitalWrite(ledPin, LOW);
